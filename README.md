@@ -13,8 +13,34 @@ Contains mbed_config.h file created to implement project with NUCLEO F401RE
 
 #### **uxtime.c**
 
+Contains following functions:
+
+char *uxtime2date(time_t uxtime)
+Convert Unix timestamp to human-readable string date.
+
+
+int uxtime2day(time_t uxtime)
+Get the day name of the week from Unix timestamp.
+
+time_t date_t2uxtime(struct date_t t)
+Get Unix timestamp of date passed by date_t struct
+
+
+float count_days(time_t t1, time_t t2)
+Calculate days between two Unix timestamps
 
 #### **test**
 
-Contains 
+uxtime_c.so: 
 
+Complied library with C functions from uxtime.c 
+
+test_uxtime.py:
+
+Tests to run with Pytest framework   
+
+Note: Test of date_t2uxtime fuction is not reliable due to ctypes time_t issue and need to be fix!
+
+#### **main.cpp**
+
+Functions implementation to use with NUCLEO F401RE, mbed API
